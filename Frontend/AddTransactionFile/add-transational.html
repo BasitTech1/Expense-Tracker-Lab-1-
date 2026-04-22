@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add-Transaction</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <div class="dashMenu">
+
+        <!-- sidbar menu  -->
+        <div class="sidbarMenu">
+            <a class="DashNav" href="../indexFiles/Index.html">
+                <b>Group 3</b>
+                <p class="logoText">23se17 || 23se16</p>
+            </a>
+            <div class="sidbarSubMenu">
+                <div class="menuBtn">
+                    <a href="../TransactionFile/transactions.html">
+                        <i class="fa-solid fa-money-bill-transfer"></i>
+                        <p>Transaction</p>
+                    </a>
+                    <a href="../AddTransactionFile/add-transational.html">
+                        <i class="fa-solid fa-file-circle-plus"></i>
+                        <p>Add-Transaction</p>
+                    </a>
+                </div>
+                <div class="logoutMenu">
+                    <a href="Logout">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        <p>Logout</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="addContent">
+
+            <h2>Add a new income or Expense </h2>
+            <form action="">
+                <div class="form1">
+                    <label>Transaction Type</label>
+                    <select>
+                        <option value="Income">Income</option>
+                        <option value="Expense">Expense</option>
+                    </select>
+                </div>
+                <div class="form2">
+                    <label>Amount</label>
+                    <input type="number" placeholder="$452" required>
+                </div>
+                <div class="form3">
+                    <label>Date</label>
+                    <input type="date" required>
+                </div>
+                <div class="form4">
+                    <label>Description</label>
+                    <textarea rows="2"></textarea>
+                </div>
+                <button>Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

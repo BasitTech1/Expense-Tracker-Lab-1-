@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    background: linear-gradient(to top, #020207 100%);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 50px 130px;
+}
+
+nav a {
+    text-decoration: none;
+    line-height: 22px;
+}
+
+nav a b {
+    font-size: 35px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: -3px;
+    color: white;
+    border-bottom: 2px solid white;
+    padding-bottom: 6px;
+}
+
+nav a p {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: orange;
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+nav .nav-btn1 {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    font-weight: 500;
+}
+
+nav .nav-btn1 a {
+    color: white;
+    font-weight: 400;
+    font-size: 18px;
+    border-bottom: 2px;
+    transition: all ease-in 0.6s;
+}
+
+nav .nav-btn1 a:hover {
+    color: rgba(255, 255, 255, 0.749);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.749);
+}
+
+nav .nav-btn2 .btn1{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: white;
+    color: #03033a;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 8px 18px;
+    border-radius: 20px;
+    border-bottom: 2px;
+    transition: all ease-in 0.6s;
+}
+
+.heroSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 40px;
+}
+
+.heroSection .heroDetails {
+    color: white;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 70px;
+}
+
+.heroSection .heroDetails h1 {
+    font-size: 8em;
+    text-transform: uppercase;
+}
+
+.heroSection .heroDetails span {
+    font-size: 3.2em;
+    text-transform: uppercase;
+    margin-top: -44px;
+    font-weight: 500;
+    letter-spacing: 12px;
+    color: orange;
+}
+
+.heroSection .heroDetails b {
+    margin-top: 10px;
+    font-weight: 300;
+    letter-spacing: 10px;
+}
+
+.heroSection .herosImage {
+    width: 50%;
+    margin-left: 20px;
+}
+
+.heroSection .herosImage img {
+    width: 80%;
+}
+
+.section2 {
+    background-color: orange;
+    margin-top: -3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 100px;
+    height: auto;
+}
+
+.section2 .section2-content {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-left: 100px;
+}
+
+.section2 .section2-content h2 {
+    font-size: 3.5em;
+    letter-spacing: 2px;
+}
+
+.section2 .section2-content p {
+    font-size: 17px;
+    font-weight: 400;
+    color: #4e4e50e4;
+}
+
+.section2 .section2-image {
+    width: 50%;
+    margin: 45px 4px;
+}
+
+.section2 .section2-image img {
+    width: 80%;
+    border-radius: 30px;
+}
+
+.section3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.section3 h2{
+    color: orange;
+    margin-top: 60px;
+    font-size: 2em;
+}
+
+.section3 ul{
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    grid-gap: 30px;
+    width: 80%;
+    margin-top: 2%;
+}
+
+.section3 ul li{
+    color: orange;
+    font-size: 16px;
+    list-style: none;
+}
+
+.section3 ul p{
+    color: white;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.749);
+}
+
+.section3 .box{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+footer{
+    background-color: rgba(40, 39, 39, 0.749);
+    margin-top: 3%;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+footer p{
+    color: rgba(255, 255, 255, 0.458);
+    padding: 12px;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
