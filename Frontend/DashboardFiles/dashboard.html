@@ -21,6 +21,10 @@
             </a>
             <div class="sidbarSubMenu">
                 <div class="menuBtn">
+                    <a href="../DashboardFiles//dashboard.html">
+                        <i class="fa-solid fa-sliders"></i>
+                        <p>Dashboard</p>
+                    </a>
                     <a href="../TransactionFile/transactions.html">
                         <i class="fa-solid fa-money-bill-transfer"></i>
                         <p>Transaction</p>
@@ -46,7 +50,7 @@
                 <div class="box1">
                     <div>
                         <h2>Total Income</h2>
-                        <p>$145</p>
+                        <p id="totalIncome">$0</p>
                     </div>
                     <i class="fa-solid fa-money-bill-1-wave"></i>
                 </div>
@@ -54,7 +58,7 @@
                 <div class="box1">
                     <div>
                         <h2>Total Expenses</h2>
-                        <p>$45</p>
+                        <p id="totalExpenses">$0</p>
                     </div>
                     <i class="fa-solid fa-credit-card"></i>
                 </div>
@@ -62,13 +66,15 @@
                 <div class="box1">
                     <div>
                         <h2>Remaining Balance</h2>
-                        <p>$100</p>
+                        <p id="remainingBalance">$0</p>
                     </div>
                     <i class="fa-solid fa-arrow-down-wide-short"></i>
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>

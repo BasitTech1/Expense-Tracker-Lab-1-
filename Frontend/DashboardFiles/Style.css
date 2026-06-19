@@ -103,7 +103,7 @@
 .dashMenu .sidbarMenu .sidbarSubMenu .menuBtn {
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 10px;
 }
 
 .dashMenu .sidbarMenu .sidbarSubMenu .menuBtn a {

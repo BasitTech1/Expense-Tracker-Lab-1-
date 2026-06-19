@@ -14,38 +14,42 @@
             <h1>Sign Up</h1>
             <p>Fill The Below Form</p>
         </div>
-        <form action="">
+        <form id="signupForm" action="">
             <div class="formIntro">
-                <div class="name">
+                <div class="name form-group">
                     <label for="Full Name">Full Name</label>
-                    <input type="text" placeholder="Enter Your Full Name">
+                    <input type="text" id="fullName" placeholder="Enter Your Full Name">
+                    <div class="error-message" id="nameError">Name cannot be empty</div>
                 </div>
-                <div class="email">
+                <div class="email form-group">
                     <label for="Email">Email Address</label>
-                    <input type="email" placeholder="Enter Your Email">
+                    <input type="email" id="email" placeholder="Enter Your Email">
+                    <div class="error-message" id="emailError">Please enter a valid email address</div>
                 </div>
             </div>
             <div class="formPass">
-                <div class="Pass">
+                <div class="Pass form-group">
                     <label for="Password">Password</label>
-                    <input type="password" placeholder="Enter password">
+                    <input type="password" id="password" placeholder="Enter password">
+                    <div class="error-message" id="passwordError">Password at least 6 characters</div>
                 </div>
-                <div class="ConPass">
+                <div class="ConPass form-group">
                     <label for="Confirm Password">Confirm Password</label>
-                    <input type="password" placeholder="Enter Your Confirm Password">
+                    <input type="password" id="confirmPassword" placeholder="Enter Your Confirm Password">
+                    <div class="error-message" id="confirmError">Passwords do not match</div>
                 </div>
             </div>
             <div class="formCalc">
                 <div class="formGender">
                     <label> Select gender</label>
-                    <select>
+                    <select id="gender">
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </select>
                 </div>
                 <div class="formCountry">
                     <label>Select country</label>
-                    <select>
+                    <select id="country">
                         <option value="">Country</option>
                         <option value="Pakistan">Pakistan</option>
                         <option value="Italy">Italy</option>
@@ -54,16 +58,21 @@
                 </div>
             </div>
             <div class="formCheck">
-                <input type="checkbox">
-                <label>Accept Terms and Conditions</label>
+                <div>
+                    <input type="checkbox" id="terms">
+                    <label>Accept Terms and Conditions</label>
+                </div>
+                <div class="error-message" id="termsError">You must accept terms and conditions</div>
             </div>
-            <button>Sign Up</button>
+            <button type="submit">Sign Up</button>
             <div class="loginBtn">
                 <p>Already You account?</p>
                 <a href="../LoginFiles/Login.html">Login</a>
             </div>
         </form>
     </div>
+
+    <script src="Script.js"></script>
 </body>
 
 </html>

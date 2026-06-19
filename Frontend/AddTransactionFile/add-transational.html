@@ -23,6 +23,10 @@
             </a>
             <div class="sidbarSubMenu">
                 <div class="menuBtn">
+                    <a href="../DashboardFiles//dashboard.html">
+                        <i class="fa-solid fa-sliders"></i>
+                        <p>Dashboard</p>
+                    </a>
                     <a href="../TransactionFile/transactions.html">
                         <i class="fa-solid fa-money-bill-transfer"></i>
                         <p>Transaction</p>
@@ -44,30 +48,40 @@
         <div class="addContent">
 
             <h2>Add a new income or Expense </h2>
-            <form action="">
+            <form id="transactionForm">
                 <div class="form1">
                     <label>Transaction Type</label>
-                    <select>
+                    <select id="transactionType">
                         <option value="Income">Income</option>
                         <option value="Expense">Expense</option>
                     </select>
                 </div>
                 <div class="form2">
                     <label>Amount</label>
-                    <input type="number" placeholder="$452" required>
+                    <input type="number" id="amount" placeholder="$452" required>
                 </div>
                 <div class="form3">
                     <label>Date</label>
-                    <input type="date" required>
+                    <input type="date" id="date" required>
                 </div>
                 <div class="form4">
                     <label>Description</label>
-                    <textarea rows="2"></textarea>
+                    <textarea id="description" rows="2"></textarea>
                 </div>
-                <button>Submit</button>
+                <button type="submit">Submit</button>
             </form>
+
+            <!-- Transaction Display Section -->
+            <div class="transaction-list">
+                <h3>Recent Transactions</h3>
+                <div id="transactionsContainer">
+                    <!-- Transactions will be displayed here -->
+                </div>
+            </div>
         </div>
     </div>
+
+    <script src="Script.js"></script>
 </body>
 
 </html>

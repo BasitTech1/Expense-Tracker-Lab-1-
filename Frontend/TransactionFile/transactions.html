@@ -21,6 +21,10 @@
             </a>
             <div class="sidbarSubMenu">
                 <div class="menuBtn">
+                    <a href="../DashboardFiles//dashboard.html">
+                        <i class="fa-solid fa-sliders"></i>
+                        <p>Dashboard</p>
+                    </a>
                     <a href="../TransactionFile/transactions.html">
                         <i class="fa-solid fa-money-bill-transfer"></i>
                         <p>Transaction</p>
@@ -39,7 +43,6 @@
             </div>
         </div>
 
-
         <div class="transContent">
             <div class="transHeading">
                 <h2>Transaction History</h2>
@@ -48,7 +51,7 @@
                     <p>Add Transaction</p>
                 </a>
             </div>
-            <table>
+            <table id="transactionTable">
                 <thead>
                     <tr>
                         <th>Transaction ID</th>
@@ -58,47 +61,14 @@
                         <th>Description</th>
                     </tr>
                 </thead>
-                <body>
-                    <tr>
-                        <th>#4511</th>
-                        <th>25 APril, 2026</th>
-                        <th>Bank Transfer</th>
-                        <th>Rs:1500</th>
-                        <th>Lorem ipsum dolor....</th>
-                    </tr>
-                    <tr>
-                        <th>#4511</th>
-                        <th>25 APril, 2026</th>
-                        <th>Bank Transfer</th>
-                        <th>Rs:1500</th>
-                        <th>Lorem ipsum dolor....</th>
-                    </tr>
-                    <tr>
-                        <th>#4511</th>
-                        <th>25 APril, 2026</th>
-                        <th>Bank Transfer</th>
-                        <th>Rs:1500</th>
-                        <th>Lorem ipsum dolor....</th>
-                    </tr>
-                    <tr>
-                        <th>#4511</th>
-                        <th>25 APril, 2026</th>
-                        <th>Bank Transfer</th>
-                        <th>Rs:1500</th>
-                        <th>Lorem ipsum dolor....</th>
-                    </tr>
-                    <tr>
-                        <th>#4511</th>
-                        <th>25 APril, 2026</th>
-                        <th>Bank Transfer</th>
-                        <th>Rs:1500</th>
-                        <th>Lorem ipsum dolor....</th>
-                    </tr>
-                </body>
+                <tbody id="transactionBody">
+                    <!-- Transactions will be dynamically inserted here -->
+                </tbody>
             </table>
         </div>
     </div>
 
+    <script src="script.js"></script>
 </body>
 
 </html>

@@ -18,7 +18,7 @@ body {
     justify-content: center;
 }
 
-.signUp{
+.signUp {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -29,7 +29,7 @@ body {
     border-radius: 20px;
 }
 
-.signUp .title{
+.signUp .title {
     color: white;
     display: flex;
     align-items: center;
@@ -38,46 +38,54 @@ body {
     margin-bottom: 4px;
 }
 
-.signUp .title h1{
+.signUp .title h1 {
     font-size: 3em;
     text-transform: uppercase;
     margin-top: 12px;
     color: orange;
 }
 
-.signUp .title p{
+.signUp .title p {
     font-size: 12px;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.474);
     letter-spacing: 3px;
 }
 
-.signUp form{
+.signUp form {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     gap: 6px;
     padding-bottom: 16px;
+    width: 100%;
+    padding: 0px 20px;
 }
 
-.signUp form .formIntro, .formPass{
+.signUp form .formIntro,
+.formPass {
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
+    justify-content: space-between;
     margin-bottom: 12px;
 }
 
-.signUp form .formCalc{
+.signUp form .formCalc {
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 85px;
+    justify-content: space-between;
     margin-bottom: 12px;
 }
 
-.signUp form .name, .email, .Pass, .ConPass, .formGender, .formCountry{
+.signUp form .name,
+.email,
+.Pass,
+.ConPass,
+.formGender,
+.formCountry {
     display: flex;
     align-items: start;
     justify-content: center;
@@ -86,40 +94,51 @@ body {
     color: white;
 }
 
-.signUp form .name, .email, .Pass, .ConPass, .formGender, .formCountry label{
+.signUp form .name,
+.email,
+.Pass,
+.ConPass,
+.formGender,
+.formCountry label {
     font-size: 17px;
     font-weight: 400;
     color: rgba(255, 255, 255, 0.781);
 }
 
-.signUp form .name input, .email input, .Pass input, .ConPass input, .formGender input, .formCountry input{
+.signUp form .name input,
+.email input,
+.Pass input,
+.ConPass input,
+.formGender input,
+.formCountry input {
     padding: 6px;
     border-radius: 6px;
     outline: none;
     border: none;
 }
 
-.signUp .formCheck{
+.signUp .formCheck {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 4px;
 }
 
-.signUp .formCheck label{
+.signUp .formCheck label {
     font-size: 16px;
     font-weight: 400;
     color: rgba(255, 255, 255, 0.781);
 }
 
-.signUp .formCheck input{
+.signUp .formCheck input {
     outline: none;
     border: none;
     padding: 14px;
     width: 20px;
 }
 
-.signUp form button{
+.signUp form button {
     padding: 5px 10px;
     font-size: 15px;
     font-weight: 600;
@@ -132,20 +151,41 @@ body {
     cursor: pointer;
 }
 
-.signUp form .loginBtn{
+.signUp form .loginBtn {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 5px;
 }
 
-.signUp form .loginBtn p{
+.signUp form .loginBtn p {
     color: rgba(255, 255, 255, 0.474);
     font-size: 12px;
     letter-spacing: 1px;
 }
 
-.signUp form .loginBtn a{
+.signUp form .loginBtn a {
     list-style: none;
     color: orange;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    display: none;
+    /* Hidden by default */
+}
+
+.error-message.show {
+    display: block;
+    /* Show when error occurs */
+}
+
+.form-group.error input {
+    border: 2px solid red;
+}
+
+.form-group.success input {
+    border: 2px solid green;
 }
