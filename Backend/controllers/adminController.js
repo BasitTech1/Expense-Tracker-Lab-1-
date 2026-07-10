@@ -410,11 +410,6 @@ export const getSystemStats = async (req, res) => {
       recentTransactions: recentTransactions || [],
     };
 
-    console.log("✅ Stats fetched successfully");
-    console.log(
-      `📊 Users: ${stats.users.total}, Income: $${stats.revenue.totalIncome}, Expenses: $${stats.revenue.totalExpense}`,
-    );
-
     res.status(200).json({
       success: true,
       data: stats,
@@ -494,15 +489,12 @@ export const generateReport = async (req, res) => {
       }
     }
 
-    console.log("📅 Date filter:", dateFilter);
-
     // Get all transactions with date filter
     let transactions = [];
     try {
       transactions = await Transaction.find(dateFilter)
         .sort({ date: -1 })
         .lean();
-      console.log(`📊 Found ${transactions.length} transactions`);
     } catch (error) {
       console.error("Error fetching transactions:", error);
       transactions = [];
@@ -576,10 +568,6 @@ export const generateReport = async (req, res) => {
       transactions: transactionsWithUser,
       generatedAt: new Date().toISOString(),
     };
-
-    console.log(
-      `✅ Report generated: ${transactionsWithUser.length} transactions`,
-    );
 
     res.status(200).json({
       success: true,

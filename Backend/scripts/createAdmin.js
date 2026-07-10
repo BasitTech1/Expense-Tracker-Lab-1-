@@ -25,24 +25,11 @@ const createAdmin = async () => {
         // Check if admin already exists
         const existingAdmin = await User.findOne({ email: adminData.email });
         if (existingAdmin) {
-            console.log('⚠️ Admin user already exists:');
-            console.log(`   Email: ${existingAdmin.email}`);
-            console.log(`   Role: ${existingAdmin.role}`);
-            console.log('   To reset password, delete this admin and run script again');
             process.exit(0);
         }
 
         // Create admin user
         const admin = await User.create(adminData);
-        
-        console.log('✅ Admin user created successfully!');
-        console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-        console.log('📧 Email:', admin.email);
-        console.log('🔑 Password:', adminData.password);
-        console.log('👤 Role:', admin.role);
-        console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-        console.log('⚠️  IMPORTANT: Save these credentials securely!');
-        console.log('⚠️  Delete or secure this script after use.');
         
         process.exit(0);
     } catch (error) {

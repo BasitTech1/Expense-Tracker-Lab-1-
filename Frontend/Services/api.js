@@ -296,8 +296,6 @@ class ApiService {
       if (startDate) params.append("startDate", startDate);
       if (endDate) params.append("endDate", endDate);
 
-      console.log("📊 Generating report with params:", params.toString());
-
       const response = await fetch(`${this.baseURL}/admin/reports?${params}`, {
         headers: this.getAuthHeaders(),
       });
