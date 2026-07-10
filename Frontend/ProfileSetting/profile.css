@@ -1,0 +1,510 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    background: #f5f6fa;
+    display: flex;
+    height: 100vh;
+}
+
+/* ============ SIDEBAR ============ */
+.sidebar {
+    width: 250px;
+    background: #03033a;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 30px 0;
+}
+
+.sidebar-header {
+    padding: 0 25px 30px 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-header h2 {
+    color: white;
+    font-size: 28px;
+    letter-spacing: -2px;
+}
+
+.sidebar-header span {
+    color: orange;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    display: block;
+    margin-top: 2px;
+}
+
+.sidebar-menu {
+    flex: 1;
+    padding: 20px 0;
+}
+
+.sidebar-menu a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 25px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 15px;
+}
+
+.sidebar-menu a:hover {
+    background: rgba(255, 165, 0, 0.1);
+    color: white;
+}
+
+.sidebar-menu a.active {
+    background: orange;
+    color: #03033a;
+    font-weight: 500;
+}
+
+.sidebar-menu a i {
+    width: 20px;
+    font-size: 16px;
+}
+
+.sidebar-footer {
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-footer a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 25px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 15px;
+}
+
+.sidebar-footer a:hover {
+    color: #ff4444;
+}
+
+.sidebar-footer a i {
+    width: 20px;
+}
+
+/* ============ MAIN CONTENT ============ */
+.main-content {
+    margin-left: 250px;
+    flex: 1;
+    padding: 40px 50px;
+    overflow-y: auto;
+}
+
+.profile-header {
+    margin-bottom: 40px;
+}
+
+.profile-header h1 {
+    font-size: 32px;
+    color: #03033a;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.profile-header h1 i {
+    color: orange;
+}
+
+.profile-header p {
+    color: #666;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+/* ============ PROFILE SECTION ============ */
+.profile-section {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.section-header h2 {
+    font-size: 20px;
+    color: #03033a;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-header h2 i {
+    color: orange;
+}
+
+.profile-setting{
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    width: 100%;
+    gap: 20px;
+}
+
+.edit-toggle {
+    background: #03033a;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.edit-toggle:hover {
+    background: #020254;
+    transform: scale(1.02);
+}
+
+/* ============ FORM STYLES ============ */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-group input,
+.form-group select {
+    padding: 10px 14px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background: white;
+    color: #333;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #03033a;
+    box-shadow: 0 0 0 3px rgba(3, 3, 58, 0.1);
+}
+
+.form-group input:disabled,
+.form-group select:disabled {
+    background: #f5f5f5;
+    color: #666;
+    cursor: not-allowed;
+}
+
+.form-group input:disabled:hover {
+    border-color: #e0e0e0;
+}
+
+.form-group input.editable {
+    background: white;
+    border-color: #03033a;
+}
+
+.form-group input.editable:focus {
+    border-color: #03033a;
+    box-shadow: 0 0 0 3px rgba(3, 3, 58, 0.1);
+}
+
+/* ============ PASSWORD INPUT ============ */
+.password-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-input-wrapper input {
+    flex: 1;
+    padding-right: 45px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px;
+}
+
+.toggle-password:hover {
+    color: #333;
+}
+
+/* ============ PASSWORD STRENGTH ============ */
+.password-strength {
+    margin-top: 5px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.password-strength.weak {
+    color: #ff4444;
+}
+
+.password-strength.medium {
+    color: #ffa500;
+}
+
+.password-strength.strong {
+    color: #00c851;
+}
+
+/* ============ FORM ACTIONS ============ */
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.btn-save {
+    background: #03033a;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-save:hover {
+    background: #020254;
+    transform: scale(1.02);
+}
+
+.btn-save:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-cancel {
+    background: #f0f0f0;
+    color: #333;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-cancel:hover {
+    background: #e0e0e0;
+}
+
+/* ============ ERROR MESSAGES ============ */
+.error-message {
+    color: #ff4444;
+    font-size: 12px;
+    display: none;
+    margin-top: 3px;
+}
+
+.error-message.show {
+    display: block;
+}
+
+.form-group.error input,
+.form-group.error select {
+    border-color: #ff4444;
+}
+
+.form-group.success input,
+.form-group.success select {
+    border-color: #00c851;
+}
+
+/* ============ NOTIFICATION ============ */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 500;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.3s ease;
+    min-width: 250px;
+}
+
+.notification.success {
+    background: #00c851;
+}
+
+.notification.error {
+    background: #ff4444;
+}
+
+.notification.info {
+    background: #2196F3;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.notification.fade-out {
+    animation: slideOut 0.3s ease forwards;
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+}
+
+/* ============ RESPONSIVE ============ */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 60px;
+        padding: 20px 0;
+    }
+
+    .sidebar-header h2 {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .sidebar-header span {
+        display: none;
+    }
+
+    .sidebar-menu a span,
+    .sidebar-footer a span {
+        display: none;
+    }
+
+    .sidebar-menu a {
+        padding: 12px 20px;
+        justify-content: center;
+    }
+
+    .sidebar-menu a i {
+        font-size: 20px;
+        width: auto;
+    }
+
+    .sidebar-footer a {
+        padding: 12px 20px;
+        justify-content: center;
+    }
+
+    .sidebar-footer a i {
+        font-size: 20px;
+        width: auto;
+    }
+
+    .main-content {
+        margin-left: 60px;
+        padding: 20px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .profile-header h1 {
+        font-size: 24px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .btn-save,
+    .btn-cancel {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .profile-section {
+        padding: 20px;
+    }
+
+    .main-content {
+        padding: 15px;
+    }
+}

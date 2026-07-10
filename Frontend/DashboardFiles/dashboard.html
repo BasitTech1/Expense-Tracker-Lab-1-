@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="../DashboardFiles/Style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -13,33 +13,39 @@
 
 <body>
     <div class="dashMenu">
-        <!-- sidbar menu  -->
-        <div class="sidbarMenu">
-            <a class="DashNav" href="../Indexfiles/Index.html">
-                <b>Group 3</b>
-                <p class="logoText">23se17 || 23se16</p>
-            </a>
-            <div class="sidbarSubMenu">
-                <div class="menuBtn">
-                    <a href="../DashboardFiles//dashboard.html">
-                        <i class="fa-solid fa-sliders"></i>
-                        <p>Dashboard</p>
-                    </a>
-                    <a href="../TransactionFile/transactions.html">
-                        <i class="fa-solid fa-money-bill-transfer"></i>
-                        <p>Transaction</p>
-                    </a>
-                    <a href="../AddTransactionFile/add-transational.html">
-                        <i class="fa-solid fa-file-circle-plus"></i>
-                        <p>Add-Transaction</p>
-                    </a>
-                </div>
-                <div class="logoutMenu">
-                    <a href="Logout">
-                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                        <p>Logout</p>
-                    </a>
-                </div>
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>Group 3</h2>
+                <span>23se17 || 23se16</span>
+            </div>
+            <div class="sidebar-menu">
+                <a href="../IndexFiles/Index.html">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
+                </a>
+                <a class="active" href="../DashboardFiles/dashboard.html">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="../TransactionFile/transactions.html">
+                    <i class="fa-solid fa-money-bill-transfer"></i>
+                    <span>Transactions</span>
+                </a>
+                <a href="../AddTransactionFile/add-transational.html">
+                    <i class="fa-solid fa-file-circle-plus"></i>
+                    <span>Add Transaction</span>
+                </a>
+                <a href="#">
+                    <i class="fa-solid fa-user-gear"></i>
+                    <span>Profile Settings</span>
+                </a>
+            </div>
+            <div class="sidebar-footer">
+                <a href="#" onclick="logout(event)">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
             </div>
         </div>
 
@@ -74,7 +80,7 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="../DashboardFiles/script.js"></script>
 </body>
 
 </html>

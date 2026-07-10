@@ -13,6 +13,9 @@ const passwordError = document.getElementById('passwordError');
 const confirmError = document.getElementById('confirmError');
 const termsError = document.getElementById('termsError');
 
+// API Configuration
+const API_BASE_URL = 'http://localhost:5000/api';
+
 // Function to validate email format
 function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -90,7 +93,7 @@ terms.addEventListener('change', function () {
 });
 
 // Form submission handler
-form.addEventListener('submit', function (event) {
+form.addEventListener('submit', async function (event) {
     event.preventDefault();
 
     let hasError = false;
@@ -140,38 +143,74 @@ form.addEventListener('submit', function (event) {
         return false;
     }
 
-    // --- TASK 4: STORE USER DATA IN LOCAL STORAGE ---
-
-    // Create user object with registration data
+    // Prepare user data for API
     const userData = {
-        name: fullName.value.trim(),
+        fullName: fullName.value.trim(),
         email: email.value.trim(),
         password: password.value,
+        confirmPassword: confirmPassword.value,
         gender: document.getElementById('gender').value,
-        country: document.getElementById('country').value,
-        registeredAt: new Date().toISOString()
+        country: document.getElementById('country').value || 'Pakistan',  // Default if empty
+        role: document.getElementById('role').value || 'user',
+        termsAccepted: terms.checked
     };
 
-    // Store user data in Local Storage using JSON.stringify()
-    localStorage.setItem('userData', JSON.stringify(userData));
+    console.log('📤 Sending:', userData);  // Debug: See what's being sent
 
-    // Also store individual items for login validation (optional)
-    localStorage.setItem('userEmail', userData.email);
-    localStorage.setItem('userPassword', userData.password);
-    localStorage.setItem('userName', userData.name);
+    try {
+        // Show loading state
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Registering...';
+        submitBtn.disabled = true;
 
-    // Show success message
-    alert('Registration successful! User data saved in Local Storage.');
+        // Send registration request to backend
+        const response = await fetch(`${API_BASE_URL}/auth/register`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userData)
+        });
 
-    // Optional: Redirect to login page
-    // window.location.href = '../LoginFiles/Login.html';
+        console.log('📥 Response Status:', response.status);  // Debug: See status code
 
-    // Log the stored data to console for verification
-    console.log('User data saved:', userData);
-    console.log('Stored data in localStorage:', JSON.parse(localStorage.getItem('userData')));
+        const data = await response.json();
+        console.log('📥 Response Data:', data);  // Debug: See full response
 
-    // Reset form after successful registration
-    // this.reset();
+        // Reset button
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+
+        if (data.success) {
+            // Store token and user data in localStorage
+            localStorage.setItem('token', data.data.token);
+            localStorage.setItem('user', JSON.stringify(data.data.user));
+
+            alert('Registration successful! Redirecting to dashboard...');
+            window.location.href = '../DashboardFiles/dashboard.html';
+        } else {
+            // Show detailed error message
+            let errorMsg = data.message || 'Registration failed. Please try again.';
+
+            // If there are validation errors
+            if (data.errors && data.errors.length > 0) {
+                errorMsg = data.errors.map(e => `- ${e.message}`).join('\n');
+            }
+
+            alert(errorMsg);
+        }
+    } catch (error) {
+        console.error('❌ Registration Error:', error);
+        alert('Network error. Please check your connection and try again.');
+
+        // Reset button
+        const submitBtn = form.querySelector('button[type="submit"]');
+        if (submitBtn) {
+            submitBtn.textContent = 'Sign Up';
+            submitBtn.disabled = false;
+        }
+    }
 });
 
 // Input listeners to clear errors on focus

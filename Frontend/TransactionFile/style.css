@@ -7,142 +7,99 @@
     font-family: "Roboto", sans-serif;
 }
 
-.dashMenu {
-    display: flex;
-    align-items: start;
-    justify-content: left;
-    gap: 5%;
-    width: 100%;
-}
-
-.dashMenu .sidbarMenu {
+/* ============ SIDEBAR ============ */
+.sidebar {
+    width: 250px;
+    background: #03033a;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: start;
-    height: 100vh;
-    background-color: #03033a;
-    width: 20%;
-    gap: 5%;
-    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 30px 0;
 }
 
-.dashMenu .sidbarMenu .DashNav {
-    margin: 35px 30px;
+.sidebar-header {
+    padding: 0 25px 30px 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.dashMenu .sidbarMenu a {
-    text-decoration: none;
-}
-
-.dashMenu .sidbarMenu a b {
-    font-size: 35px;
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: -3px;
+.sidebar-header h2 {
     color: white;
-    border-bottom: 2px solid white;
-    padding-bottom: 0px;
+    font-size: 28px;
+    letter-spacing: -2px;
 }
 
-.dashMenu .sidbarMenu a .logoText {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+.sidebar-header span {
     color: orange;
-    font-weight: 800;
     font-size: 12px;
-    letter-spacing: 2px;
-    margin-top: 3px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    display: block;
+    margin-top: 2px;
 }
 
-.dashMenu .nav-btn1 {
+.sidebar-menu {
+    flex: 1;
+    padding: 20px 0;
+}
+
+.sidebar-menu a {
     display: flex;
     align-items: center;
-    gap: 30px;
-    font-weight: 500;
-    margin: 50px;
-}
-
-.dashMenu .nav-btn1 a {
-    color: #03033a;
-    font-weight: 400;
-    font-size: 18px;
-    border-bottom: 2px;
-    transition: all ease-in 0.6s;
+    gap: 12px;
+    padding: 12px 25px;
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
-}
-
-.dashMenu .nav-btn1 a:hover {
-    color: rgba(4, 2, 126, 0.749);
-    border-bottom: 2px solid rgba(4, 2, 126, 0.749);
-}
-
-.dashMenu .nav-btn2 .btn1 {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    background-color: white;
-    color: #03033a;
+    transition: all 0.3s ease;
     font-size: 15px;
-    font-weight: 500;
-    padding: 8px 18px;
-    border-radius: 20px;
-    border-bottom: 2px;
-    transition: all ease-in 0.6s;
 }
 
-.dashMenu .sidbarMenu .sidbarSubMenu {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: space-between;
-    margin-left: 30px;
-    height: 100vh;
-}
-
-.dashMenu .sidbarMenu .sidbarSubMenu .menuBtn {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.dashMenu .sidbarMenu .sidbarSubMenu .menuBtn a {
-    text-decoration: none;
-    font-size: 18px;
-    display: flex;
+.sidebar-menu a:hover {
+    background: rgba(255, 165, 0, 0.1);
     color: white;
-    align-items: center;
-    justify-content: start;
-    gap: 7px;
-    width: 100%;
-    padding: 8px;
-    transition: all ease-in-out 0.5s;
 }
 
-.dashMenu .sidbarMenu .sidbarSubMenu .menuBtn a:hover {
-    background-color: orange;
-    width: 110%;
-    padding: 8px;
+.sidebar-menu a.active {
+    background: orange;
     color: #03033a;
+    font-weight: 500;
 }
 
-.dashMenu .sidbarMenu .sidbarSubMenu .logoutMenu a {
-    text-decoration: none;
-    font-size: 18px;
+.sidebar-menu a i {
+    width: 20px;
+    font-size: 16px;
+}
+
+.sidebar-footer {
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-footer a {
     display: flex;
-    color: white;
     align-items: center;
-    justify-content: start;
-    gap: 7px;
-    width: 100%;
-    padding: 8px;
-    transition: all ease-in-out 0.5s;
-    margin-bottom: 16px;
+    gap: 12px;
+    padding: 12px 25px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 15px;
+}
+
+.sidebar-footer a:hover {
+    color: #ff4444;
+}
+
+.sidebar-footer a i {
+    width: 20px;
 }
 
 .dashMenu .transContent {
     margin-top: 5%;
-    width: 100%;
+    width: 85%;
+    padding-left: 20%;
 }
 
 .dashMenu .transContent .transHeading {
@@ -152,7 +109,6 @@
     margin-bottom: 4%;
     border-bottom: 2px solid rgba(128, 128, 128, 0.266);
     padding-bottom: 14px;
-    padding-right: 6%;
 }
 
 .dashMenu .transContent h2 {
@@ -178,67 +134,293 @@
     background-color: #020254;
 }
 
-
+/* Table Styles - FIXED */
 .dashMenu .transContent table {
     width: 100%;
+    border-collapse: collapse;
 }
 
-
 .dashMenu .transContent table thead tr {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 80%;
     background-color: #020254;
-    padding: 10px 40px;
     color: white;
 }
 
-
-.dashMenu .transContent table tbody {
-    display: flex;
-    align-items: start;
-    flex-direction: column;
-    gap: 4px;
-}
-
-
-.dashMenu .transContent table tbody tr {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 80%;
-    background-color: #d6d6d6;
-    padding: 10px;
-    padding-left: 25px;
-    color: #03033a;
+.dashMenu .transContent table thead th {
+    padding: 12px 20px;
+    text-align: left;
+    font-weight: 500;
     font-size: 14px;
 }
 
-.dashMenu .transContent table tbody tr th {
-    width: 16%;
+/* Fixed column widths */
+.dashMenu .transContent table thead th:nth-child(1),
+.dashMenu .transContent table tbody td:nth-child(1) {
+    width: 15%;
 }
 
-.no-transactions {
-    text-align: center;
-    padding: 20px;
-    color: #666;
+.dashMenu .transContent table thead th:nth-child(2),
+.dashMenu .transContent table tbody td:nth-child(2) {
+    width: 20%;
 }
 
+.dashMenu .transContent table thead th:nth-child(3),
+.dashMenu .transContent table tbody td:nth-child(3) {
+    width: 15%;
+}
+
+.dashMenu .transContent table thead th:nth-child(4),
+.dashMenu .transContent table tbody td:nth-child(4) {
+    width: 18%;
+}
+
+.dashMenu .transContent table thead th:nth-child(5),
+.dashMenu .transContent table tbody td:nth-child(5) {
+    width: 32%;
+}
+
+.dashMenu .transContent table tbody tr {
+    border-bottom: 1px solid #e0e0e0;
+    transition: background-color 0.2s ease;
+}
+
+.dashMenu .transContent table tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+.dashMenu .transContent table tbody td {
+    padding: 12px 20px;
+    color: #333;
+    font-size: 14px;
+}
+
+/* Transaction type styling */
 .transaction-row.income {
-    border-left: 3px solid green;
+    border-left: 4px solid #4CAF50;
 }
 
 .transaction-row.expense {
-    border-left: 3px solid red;
+    border-left: 4px solid #f44336;
 }
 
 .amount-income {
-    color: green;
-    font-weight: bold;
+    color: #4CAF50;
+    font-weight: 600;
 }
 
 .amount-expense {
-    color: red;
-    font-weight: bold;
+    color: #f44336;
+    font-weight: 600;
+}
+
+.type-income {
+    color: #4CAF50;
+    font-weight: 500;
+}
+
+.type-expense {
+    color: #f44336;
+    font-weight: 500;
+}
+
+.transaction-id {
+    font-family: monospace;
+    font-weight: 500;
+    color: #555;
+}
+
+/* Empty State */
+.no-transactions {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+}
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.empty-state i {
+    font-size: 48px;
+    color: #ccc;
+}
+
+.empty-state p {
+    font-size: 18px;
+    font-weight: 500;
+    color: #555;
+}
+
+.empty-state span {
+    font-size: 14px;
+    color: #999;
+}
+
+/* Error State */
+.error-state {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.error-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: #d32f2f;
+}
+
+.error-message i {
+    font-size: 48px;
+}
+
+/* Loading State */
+.loading-text {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-style: italic;
+}
+
+/* Search Bar */
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-container input {
+    padding: 10px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    width: 300px;
+    transition: all 0.3s ease;
+}
+
+.search-container input:focus {
+    outline: none;
+    border-color: #03033a;
+    box-shadow: 0 0 0 3px rgba(3, 3, 58, 0.1);
+}
+
+.search-container input::placeholder {
+    color: #999;
+}
+
+.search-container .search-icon {
+    position: relative;
+    left: -35px;
+    color: #999;
+    pointer-events: none;
+}
+
+.search-container .clear-search {
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 5px;
+    display: none;
+}
+
+.search-container .clear-search.visible {
+    display: block;
+}
+
+.search-container .clear-search:hover {
+    color: #333;
+}
+
+/* Notification */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    animation: slideIn 0.3s ease;
+}
+
+.notification.success {
+    background-color: #4CAF50;
+}
+
+.notification.info {
+    background-color: #2196F3;
+}
+
+.notification.error {
+    background-color: #f44336;
+}
+
+.notification.fade-out {
+    animation: slideOut 0.3s ease forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .dashMenu {
+        flex-direction: column;
+    }
+
+    .dashMenu .sidbarMenu {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .dashMenu .sidbarMenu .sidbarSubMenu {
+        height: auto;
+        padding-bottom: 20px;
+    }
+
+    .dashMenu .transContent {
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    .search-container input {
+        width: 100%;
+    }
+
+    .dashMenu .transContent table {
+        display: block;
+        overflow-x: auto;
+    }
 }

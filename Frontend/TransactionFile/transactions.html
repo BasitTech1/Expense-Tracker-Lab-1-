@@ -13,35 +13,42 @@
 
 <body>
     <div class="dashMenu">
-        <!-- sidbar menu  -->
-        <div class="sidbarMenu">
-            <a class="DashNav" href="../Indexfiles/Index.html">
-                <b>Group 3</b>
-                <p class="logoText">23se17 || 23se16</p>
-            </a>
-            <div class="sidbarSubMenu">
-                <div class="menuBtn">
-                    <a href="../DashboardFiles//dashboard.html">
-                        <i class="fa-solid fa-sliders"></i>
-                        <p>Dashboard</p>
-                    </a>
-                    <a href="../TransactionFile/transactions.html">
-                        <i class="fa-solid fa-money-bill-transfer"></i>
-                        <p>Transaction</p>
-                    </a>
-                    <a href="../AddTransactionFile/add-transational.html">
-                        <i class="fa-solid fa-file-circle-plus"></i>
-                        <p>Add-Transaction</p>
-                    </a>
-                </div>
-                <div class="logoutMenu">
-                    <a href="Logout">
-                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                        <p>Logout</p>
-                    </a>
-                </div>
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>Group 3</h2>
+                <span>23se17 || 23se16</span>
+            </div>
+            <div class="sidebar-menu">
+                <a href="../IndexFiles/Index.html">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
+                </a>
+                <a href="../DashboardFiles/dashboard.html">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a class="active" href="../TransactionFile/transactions.html">
+                    <i class="fa-solid fa-money-bill-transfer"></i>
+                    <span>Transactions</span>
+                </a>
+                <a href="../AddTransactionFile/add-transational.html">
+                    <i class="fa-solid fa-file-circle-plus"></i>
+                    <span>Add Transaction</span>
+                </a>
+                <a href="../ProfileSetting/profile.html">
+                    <i class="fa-solid fa-user-gear"></i>
+                    <span>Profile Settings</span>
+                </a>
+            </div>
+            <div class="sidebar-footer">
+                <a href="#" onclick="logout(event)">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
             </div>
         </div>
+
 
         <div class="transContent">
             <div class="transHeading">

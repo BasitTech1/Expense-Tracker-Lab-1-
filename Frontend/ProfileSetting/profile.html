@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Settings</title>
+    <link rel="stylesheet" href="../ProfileSetting/profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="profile-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>Group 3</h2>
+                <span>23se17 || 23se16</span>
+            </div>
+            <div class="sidebar-menu">
+                <a href="../IndexFiles/Index.html">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
+                </a>
+                <a href="../DashboardFiles/dashboard.html">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="../TransactionFile/transactions.html">
+                    <i class="fa-solid fa-money-bill-transfer"></i>
+                    <span>Transactions</span>
+                </a>
+                <a href="../AddTransactionFile/add-transational.html">
+                    <i class="fa-solid fa-file-circle-plus"></i>
+                    <span>Add Transaction</span>
+                </a>
+                <a href="../ProfileSetting/profile.html" class="active">
+                    <i class="fa-solid fa-user-gear"></i>
+                    <span>Profile Settings</span>
+                </a>
+            </div>
+            <div class="sidebar-footer">
+                <a href="#" onclick="logoutUser(event)">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="profile-header">
+                <h1><i class="fa-solid fa-user-gear"></i> Profile Settings</h1>
+                <p>Manage your account information and security</p>
+            </div>
+
+            <div class="profile-setting">
+                <!-- Profile Information -->
+                <div class="profile-section">
+                    <div class="section-header">
+                        <h2><i class="fa-solid fa-user"></i> Personal Information</h2>
+                        <button class="edit-toggle" onclick="toggleEdit()">
+                            <i class="fa-solid fa-pen"></i> Edit Profile
+                        </button>
+                    </div>
+
+                    <form id="profileForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fullName">Full Name</label>
+                                <input type="text" id="fullName" placeholder="Enter your full name" disabled>
+                                <div class="error-message" id="nameError">Full name is required</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" placeholder="Enter your email" disabled>
+                                <div class="error-message" id="emailError">Please enter a valid email</div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="gender">Gender</label>
+                                <select id="gender" disabled>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="country">Country</label>
+                                <select id="country" disabled>
+                                    <option value="Pakistan">Pakistan</option>
+                                    <option value="India">India</option>
+                                    <option value="United Kingdom">United Kingdom</option>
+                                    <option value="United States">United States</option>
+                                    <option value="Canada">Canada</option>
+                                    <option value="Australia">Australia</option>
+                                    <option value="Germany">Germany</option>
+                                    <option value="France">France</option>
+                                    <option value="Italy">Italy</option>
+                                    <option value="Spain">Spain</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="role">Role</label>
+                                <input type="text" id="role" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="memberSince">Member Since</label>
+                                <input type="text" id="memberSince" disabled>
+                            </div>
+                        </div>
+
+                        <div class="form-actions" id="editActions" style="display: none;">
+                            <button type="submit" class="btn-save">
+                                <i class="fa-solid fa-check"></i> Save Changes
+                            </button>
+                            <button type="button" class="btn-cancel" onclick="cancelEdit()">
+                                <i class="fa-solid fa-xmark"></i> Cancel
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Change Password Section -->
+                <div class="profile-section">
+                    <div class="section-header">
+                        <h2><i class="fa-solid fa-lock"></i> Change Password</h2>
+                    </div>
+
+                    <form id="passwordForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="currentPassword">Current Password</label>
+                                <div class="password-input-wrapper">
+                                    <input type="password" id="currentPassword" placeholder="Enter current password">
+                                    <button type="button" class="toggle-password"
+                                        onclick="togglePassword('currentPassword')">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="error-message" id="currentPasswordError">Current password is required</div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="newPassword">New Password</label>
+                                <div class="password-input-wrapper">
+                                    <input type="password" id="newPassword" placeholder="Enter new password">
+                                    <button type="button" class="toggle-password"
+                                        onclick="togglePassword('newPassword')">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="error-message" id="newPasswordError">Password must be at least 6 characters
+                                </div>
+                                <div class="password-strength" id="passwordStrength"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmNewPassword">Confirm New Password</label>
+                                <div class="password-input-wrapper">
+                                    <input type="password" id="confirmNewPassword" placeholder="Confirm new password">
+                                    <button type="button" class="toggle-password"
+                                        onclick="togglePassword('confirmNewPassword')">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="error-message" id="confirmNewPasswordError">Passwords do not match</div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-save">
+                                <i class="fa-solid fa-key"></i> Change Password
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Notification -->
+            <div id="notification" class="notification" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script src="../ProfileSetting/script.js"></script>
+</body>
+
+</html>

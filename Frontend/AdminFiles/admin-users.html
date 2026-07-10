@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Users Management</title>
+    <link rel="stylesheet" href="../AdminFiles/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <div class="admin-container">
+      <!-- Sidebar -->
+      <div class="admin-sidebar">
+        <div class="sidebar-header">
+          <h2>Group 3</h2>
+          <span>Admin Panel</span>
+        </div>
+        <div class="sidebar-menu">
+          <a href="admin-dashboard.html">
+            <i class="fa-solid fa-gauge-high"></i>
+            <span>Dashboard</span>
+          </a>
+          <a class="active" href="admin-users.html">
+            <i class="fa-solid fa-users"></i>
+            <span>Users</span>
+          </a>
+          <a href="admin-transactions.html">
+            <i class="fa-solid fa-money-bill-transfer"></i>
+            <span>Transactions</span>
+          </a>
+          <a href="admin-categories.html">
+            <i class="fa-solid fa-tags"></i>
+            <span>Categories</span>
+          </a>
+          <a href="admin-reports.html">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>Reports</span>
+          </a>
+        </div>
+        <div class="sidebar-footer">
+          <a href="../IndexFiles/Index.html">
+            <i class="fa-solid fa-house"></i>
+            <span>Back to Site</span>
+          </a>
+          <a href="#" onclick="logoutAdmin(event)">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span>Logout</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="admin-main">
+        <div class="admin-header">
+          <h1><i class="fa-solid fa-users"></i> User Management</h1>
+          <div class="admin-user">
+            <span id="adminName">Admin</span>
+            <span class="admin-badge">Administrator</span>
+          </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="filter-bar">
+          <div class="search-box">
+            <i class="fa-solid fa-search"></i>
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search users by name or email..."
+            />
+          </div>
+          <select id="roleFilter">
+            <option value="">All Roles</option>
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+          </select>
+          <select id="statusFilter">
+            <option value="">All Status</option>
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
+          </select>
+          <button onclick="loadUsers()" class="btn-refresh">
+            <i class="fa-solid fa-rotate"></i> Refresh
+          </button>
+        </div>
+
+        <!-- Users Table -->
+        <div class="table-container">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Transactions</th>
+                <th>Joined</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="usersTableBody">
+              <tr>
+                <td colspan="7" class="loading">Loading users...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination" id="pagination">
+          <button onclick="changePage('prev')" id="prevBtn">
+            <i class="fa-solid fa-chevron-left"></i> Previous
+          </button>
+          <span id="pageInfo">Page 1 of 1</span>
+          <button onclick="changePage('next')" id="nextBtn">
+            Next <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit User Modal -->
+    <div id="editModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Edit User</h3>
+          <span class="close" onclick="closeModal()">&times;</span>
+        </div>
+        <form id="editUserForm">
+          <input type="hidden" id="editUserId" />
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="editFullName" required />
+          </div>
+          <div class="form-group">
+            <label>Role</label>
+            <select id="editRole">
+              <option value="user">User</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Status</label>
+            <select id="editStatus">
+              <option value="true">Active</option>
+              <option value="false">Inactive</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-save">Save Changes</button>
+        </form>
+      </div>
+    </div>
+
+    <script type="module" src="../AdminFiles/script.js"></script>
+  </body>
+</html>

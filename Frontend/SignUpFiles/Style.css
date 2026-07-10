@@ -85,7 +85,8 @@ body {
 .Pass,
 .ConPass,
 .formGender,
-.formCountry {
+.formCountry,
+.formRole {
     display: flex;
     align-items: start;
     justify-content: center;
@@ -99,8 +100,9 @@ body {
 .Pass,
 .ConPass,
 .formGender,
-.formCountry label {
-    font-size: 17px;
+.formCountry,
+.formRole label {
+    font-size: 16px;
     font-weight: 400;
     color: rgba(255, 255, 255, 0.781);
 }
@@ -108,13 +110,20 @@ body {
 .signUp form .name input,
 .email input,
 .Pass input,
-.ConPass input,
-.formGender input,
-.formCountry input {
+.ConPass input {
     padding: 6px;
     border-radius: 6px;
     outline: none;
     border: none;
+}
+
+
+.formGender select,
+.formCountry select,
+.formRole select{
+    outline: none;
+    padding: 4px 8px;
+    font-size: 13px;
 }
 
 .signUp .formCheck {
@@ -156,6 +165,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 5px;
+    margin: 20px 0px;
 }
 
 .signUp form .loginBtn p {

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Reports</title>
+    <link rel="stylesheet" href="../AdminFiles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <div class="admin-sidebar">
+            <div class="sidebar-header">
+                <h2>Group 3</h2>
+                <span>Admin Panel</span>
+            </div>
+            <div class="sidebar-menu">
+                <a href="admin-dashboard.html">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="admin-users.html">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Users</span>
+                </a>
+                <a href="admin-transactions.html">
+                    <i class="fa-solid fa-money-bill-transfer"></i>
+                    <span>Transactions</span>
+                </a>
+                <a href="admin-categories.html">
+                    <i class="fa-solid fa-tags"></i>
+                    <span>Categories</span>
+                </a>
+                <a class="active" href="admin-reports.html">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Reports</span>
+                </a>
+            </div>
+            <div class="sidebar-footer">
+                <a href="../IndexFiles/Index.html">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Back to Site</span>
+                </a>
+                <a href="#" onclick="logoutAdmin(event)">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="admin-main">
+            <div class="admin-header">
+                <h1><i class="fa-solid fa-chart-line"></i> Financial Reports</h1>
+                <div class="admin-user">
+                    <span id="adminName">Admin</span>
+                    <span class="admin-badge">Administrator</span>
+                </div>
+            </div>
+
+            <!-- Report Filters -->
+            <div class="filter-bar">
+                <select id="reportPeriod">
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="monthly" selected>Monthly</option>
+                    <option value="yearly">Yearly</option>
+                    <option value="custom">Custom</option>
+                </select>
+                <input type="date" id="reportStartDate" style="display:none;">
+                <input type="date" id="reportEndDate" style="display:none;">
+                <button onclick="generateReport()" class="btn-refresh">
+                    <i class="fa-solid fa-file-pdf"></i> Generate Report
+                </button>
+            </div>
+
+            <!-- Report Summary -->
+            <div class="report-summary" id="reportSummary">
+                <div class="report-card">
+                    <h4>Total Users</h4>
+                    <p id="reportUsers">0</p>
+                </div>
+                <div class="report-card">
+                    <h4>Total Transactions</h4>
+                    <p id="reportTransactions">0</p>
+                </div>
+                <div class="report-card">
+                    <h4>Total Income</h4>
+                    <p id="reportIncome" style="color:#388e3c;">$0</p>
+                </div>
+                <div class="report-card">
+                    <h4>Total Expenses</h4>
+                    <p id="reportExpense" style="color:#d32f2f;">$0</p>
+                </div>
+                <div class="report-card">
+                    <h4>Balance</h4>
+                    <p id="reportBalance" style="color:#03033a;">$0</p>
+                </div>
+            </div>
+
+            <!-- Report Details -->
+            <div class="table-container">
+                <h3 style="margin-bottom: 15px; color: #03033a;">
+                    <i class="fa-solid fa-list"></i> Transaction Details
+                </h3>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Type</th>
+                            <th>Amount</th>
+                            <th>Category</th>
+                            <th>Description</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reportTableBody">
+                        <tr>
+                            <td colspan="6" class="loading">Generate a report to see data...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="../AdminFiles/script.js"></script>
+</body>
+
+</html>
