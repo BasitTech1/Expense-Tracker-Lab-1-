@@ -1,17 +1,27 @@
-import { Transaction } from '../models/transactionModel.js';
+import { Transaction } from "../models/transactionModel.js";
 
-// Create Transaction
+// controllers/transactionController.js
 export const createTransaction = async (req, res) => {
   try {
-    const transaction = await Transaction.create(req.body);
+    const transactionData = {
+      userId: req.userId,
+      type: req.body.type,
+      amount: req.body.amount,
+      category: req.body.category || "Other",
+      date: req.body.date || new Date(),
+      description: req.body.description,
+    };
+
+    const transaction = await Transaction.create(transactionData);
     res.status(201).json({
       success: true,
-      data: transaction
+      data: transaction,
     });
   } catch (error) {
+    console.error("Create Transaction Error:", error);
     res.status(400).json({
       success: false,
-      message: error.message
+      message: error.message,
     });
   }
 };
@@ -19,16 +29,18 @@ export const createTransaction = async (req, res) => {
 // Get All Transactions
 export const getTransactions = async (req, res) => {
   try {
-    const transactions = await Transaction.find().sort({ date: -1 });
+    const transactions = await Transaction.find({ userId: req.userId }).sort({
+      date: -1,
+    });
     res.status(200).json({
       success: true,
       count: transactions.length,
-      data: transactions
+      data: transactions,
     });
   } catch (error) {
     res.status(500).json({
       success: false,
-      message: error.message
+      message: error.message,
     });
   }
 };
@@ -36,21 +48,24 @@ export const getTransactions = async (req, res) => {
 // Get Single Transaction
 export const getTransactionById = async (req, res) => {
   try {
-    const transaction = await Transaction.findById(req.params.id);
+    const transaction = await Transaction.findById({
+      _id: req.params.id,
+      userId: req.userId,
+    });
     if (!transaction) {
       return res.status(404).json({
         success: false,
-        message: 'Transaction not found'
+        message: "Transaction not found",
       });
     }
     res.status(200).json({
       success: true,
-      data: transaction
+      data: transaction,
     });
   } catch (error) {
     res.status(500).json({
       success: false,
-      message: error.message
+      message: error.message,
     });
   }
 };
@@ -59,27 +74,30 @@ export const getTransactionById = async (req, res) => {
 export const updateTransaction = async (req, res) => {
   try {
     const transaction = await Transaction.findByIdAndUpdate(
-      req.params.id,
+      {
+        _id: req.params.id,
+        userId: req.userId,
+      },
       req.body,
       {
         new: true,
-        runValidators: true
-      }
+        runValidators: true,
+      },
     );
     if (!transaction) {
       return res.status(404).json({
         success: false,
-        message: 'Transaction not found'
+        message: "Transaction not found",
       });
     }
     res.status(200).json({
       success: true,
-      data: transaction
+      data: transaction,
     });
   } catch (error) {
     res.status(400).json({
       success: false,
-      message: error.message
+      message: error.message,
     });
   }
 };
@@ -87,21 +105,24 @@ export const updateTransaction = async (req, res) => {
 // Delete Transaction
 export const deleteTransaction = async (req, res) => {
   try {
-    const transaction = await Transaction.findByIdAndDelete(req.params.id);
+    const transaction = await Transaction.findByIdAndDelete({
+      _id: req.params.id,
+      userId: req.userId,
+    });
     if (!transaction) {
       return res.status(404).json({
         success: false,
-        message: 'Transaction not found'
+        message: "Transaction not found",
       });
     }
     res.status(200).json({
       success: true,
-      message: 'Transaction deleted successfully'
+      message: "Transaction deleted successfully",
     });
   } catch (error) {
     res.status(500).json({
       success: false,
-      message: error.message
+      message: error.message,
     });
   }
 };

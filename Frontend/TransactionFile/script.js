@@ -10,8 +10,30 @@ const transactionBody = document.getElementById('transactionBody');
 let allTransactions = [];
 let filteredTransactions = [];
 
+// ✅ Check authentication
+function checkAuth() {
+    const token = localStorage.getItem('token');
+    if (!token) {
+        window.location.href = '../LoginFiles/Login.html';
+        return false;
+    }
+    return true;
+}
+
+// ✅ Get auth headers
+function getAuthHeaders() {
+    const token = localStorage.getItem('token');
+    return {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+    };
+}
+
 // Function to fetch transactions from API
 async function loadTransactions() {
+    // ✅ Check authentication first
+    if (!checkAuth()) return;
+
     try {
         // Show loading state
         if (transactionBody) {
@@ -22,8 +44,18 @@ async function loadTransactions() {
             `;
         }
 
-        // Fetch data from backend API
-        const response = await fetch(`${API_BASE_URL}/transactions`);
+        // ✅ Add authentication headers
+        const response = await fetch(`${API_BASE_URL}/transactions`, {
+            headers: getAuthHeaders()
+        });
+
+        // ✅ Handle 401 Unauthorized
+        if (response.status === 401) {
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+            window.location.href = '../LoginFiles/Login.html';
+            return;
+        }
 
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -60,6 +92,8 @@ async function loadTransactions() {
 
         // Render transactions
         renderTransactions(filteredTransactions);
+
+        console.log(`✅ Loaded ${allTransactions.length} transactions`);
 
     } catch (error) {
         console.error('❌ Error loading transactions:', error);
@@ -310,6 +344,14 @@ function showNotification(message, type = 'info') {
         notification.classList.add('fade-out');
         setTimeout(() => notification.remove(), 300);
     }, 3000);
+}
+
+// ✅ Logout function (if needed)
+function logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    localStorage.removeItem('refreshToken');
+    window.location.href = '../LoginFiles/Login.html';
 }
 
 // Export functions for use in other files

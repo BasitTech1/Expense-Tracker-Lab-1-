@@ -3,7 +3,6 @@ import mongoose from "mongoose";
 
 const transactionSchema = new mongoose.Schema(
   {
-    // ✅ ADD THIS - userId field is required for relation
     userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
